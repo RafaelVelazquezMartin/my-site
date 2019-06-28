@@ -1,0 +1,34 @@
+<div class="title block">
+  <h1>Lorem ipsum dolor sit, amet consectetur adipisic</h1>
+</div>
+
+<div class="caption" *ngIf="technologies">
+  <span class="brand">I work with: </span>
+  <span [innerHTML]="htmlToAdd" id="demo"></span>
+  <span><img [src]="'http://localhost:3000/' + technologies[turn].logo" (change)="delayImage()" height="60" alt="Nothing"></span>
+  <span class='type-cursor'>_</span>
+</div>
+
+
+
+<!-- <div class="row text">
+  <div class="col-sm-12 title">
+    <h1>Lorem ipsum, dolor sit amet consectetur adipisic.</h1>
+  </div>
+  <div class="col-sm-10 col-sm-offset-1 subtitle">
+    <h2>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint optio maxime aspernatur repellat.
+    </h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Projects</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 box" *ngFor="let project of projects; let i = index;">
+    <app-image-carousel [images]="project.images" [projectIndex]="i"></app-image-carousel>
+    <h3>{{ project.name }}</h3>
+  </div>
+</div> -->

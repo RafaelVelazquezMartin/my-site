@@ -1,0 +1,36 @@
+<div>
+  <h2 mat-dialog-title>Create a New Technology</h2>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Name" [(ngModel)]="data.name" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Type" [(ngModel)]="data.type" required>
+        <mat-option value="frontend">
+          Frontend
+        </mat-option>
+        <mat-option value="backend">
+          Backend
+        </mat-option>
+        <mat-option value="others">
+          Others
+        </mat-option>
+      </mat-select>
+      <!-- <input type="text" matInput placeholder="Type" [(ngModel)]="data.type" required> -->
+    </mat-form-field>
+
+    <button mat-raised-button (click)="fileInput.click()" type="button" class="form-control">Choose an image...</button>
+    <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+      <input type="file" #fileInput (change)="fileChangeEvent($event)" class="form-control" autoComplete="off" />
+    </span>
+
+    <div *ngIf="fileUrl">
+      <img *ngIf="isDataAvailable" [src]="fileUrl" alt="Nothing" style="width: 100%; height: 100%; max-width: 250px;">
+      <button mat-mini-fab class="btn btn-danger" (click)="data.logo = undefined; fileUrl = undefined;" type="button">X</button>
+    </div>
+  </div>
+  <mat-dialog-actions>
+    <button mat-raised-button (click)="onNoClick()">No</button>
+    <button mat-raised-button [mat-dialog-close]="data">Yes</button>
+  </mat-dialog-actions>
+</div>

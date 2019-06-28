@@ -1,0 +1,12 @@
+<div #slider (mouseenter)="stopSlider()" (mouseleave)="startSlider()" (window:resize)="updateWidths($event)" *ngIf="imgPaths"
+  id="slider">
+  <mat-icon *ngIf="stopped" id="stopped">pause_circle_outline</mat-icon>
+  <mat-icon (click)="onNextSlide()" id="next">send</mat-icon>
+  <mat-icon (click)="onPreviousSlide()" id="previous">send</mat-icon>
+  <ul #slides class="slides">
+    <li class="slide" *ngFor="let imgPath of imgPaths"><img [src]="'http://localhost:3000/' + imgPath" alt=""></li>
+  </ul>
+  <ul class="dots">
+    <li class="dot" [ngClass]="currentSlide === i ? 'active' : ''" *ngFor="let imgPath of imgPaths; let i = index;" (click)="onGoToSlide(i)"></li>
+  </ul>
+</div>

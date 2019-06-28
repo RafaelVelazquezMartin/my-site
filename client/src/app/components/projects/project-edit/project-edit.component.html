@@ -1,0 +1,71 @@
+<!-- <p>{{ projectForm.value | json }}</p> -->
+<form [formGroup]="projectForm" (ngSubmit)="onProjectSaved()">
+  <div class="form-actions">
+    <button mat-raised-button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button [disabled]="!projectForm.valid" type="submit" class="btn btn-primary">Save</button>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <input formControlName="name" type="text" matInput placeholder="Name">
+    </mat-form-field>
+
+    <!-- <mat-form-field>
+      <textarea formControlName="description" type="text" matInput placeholder="Description"></textarea>
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <input formControlName="importance" type="number" matInput placeholder="Importance">
+    </mat-form-field>
+  </div>
+  <div class="col-sm-12" formArrayName="stack">
+    <h3>Technologies</h3>
+    <button mat-icon-button color="accent" type="button" (click)="onCreateNewTech()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <div class="row" *ngFor="let techCntrl of getStack().controls; let i = index;">
+      <!-- <select [formControlName]="i">
+        <option [value]="tech['_id']" *ngFor="let tech of technologies">{{ tech.name }}</option>
+      </select> -->
+      <!-- <ng-container [formControlName]="i"> -->
+      <mat-form-field>
+        <input type="text" [placeholder]="'Technology ' + i" aria-label="Technology" matInput [formControlName]="i" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" autoActiveFirstOption>
+          <mat-option *ngFor="let option of filteredOptions[i] | async" [value]="option">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <!-- <app-auto-complete placeholder="Technology" [control]="techCntrl" [options]="technologies"></app-auto-complete> -->
+      <!-- </ng-container> -->
+      <button mat-raised-button class="btn btn-danger" (click)="onDeleteTechnologyFormControl(i)" type="button">X</button>
+    </div>
+    <hr>
+    <button mat-raised-button class="btn btn-primary" (click)="onAddTechnologyFormControl()" type="button">Add Technology</button>
+  </div>
+
+
+  <h3>Images</h3>
+  <div *ngIf="project">
+    <h4>Files</h4>
+    <h5 *ngIf="project.images.length < 1">This project contains no images</h5>
+    <div *ngFor="let image of project.images; let i = index;">
+      <img [src]="'http://localhost:3000/' + image.imagePath" alt="Nothing" style="width: 100%; height: 100%; max-width: 250px;">
+      <button mat-mini-fab class="btn btn-danger" (click)="onDeleteImage(i, image._id)" type="button">X</button>
+    </div>
+  </div>
+
+  <h4>Added files</h4>
+  <h5 *ngIf="fileUrls.length < 1">No new images added</h5>
+  <div *ngFor="let addedImage of fileUrls; let i = index;">
+    <img *ngIf="isDataAvailable" [src]="addedImage" alt="Nothing" style="width: 100%; height: 100%; max-width: 250px;">
+    <button mat-mini-fab class="btn btn-danger" (click)=" filesToUpload.splice(i, 1); fileUrls.splice(i, 1);" type="button">X</button>
+  </div>
+  <hr>
+  <button mat-raised-button (click)="fileInput.click()" type="button" class="form-control btn-primary">Choose an image...</button>
+  <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+    <input type="file" #fileInput multiple (change)="fileChangeEvent($event)" class="form-control" />
+  </span>
+</form>
+
+<ckeditor [(ngModel)]="description" [editor]="editor">
+</ckeditor>

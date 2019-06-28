@@ -1,0 +1,19 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group > * {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.form-actions > * {
+  margin: 0 5px;
+}

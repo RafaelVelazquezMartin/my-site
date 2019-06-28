@@ -1,0 +1,23 @@
+::ng-deep :root {
+  --shadow: 0 3px 7px rgba(58, 58, 58, 0.8);
+}
+
+.auth-group {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+}
+
+.auth-form {
+  grid-column: span 1;
+  box-shadow: var(--shadow);
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 25% 0;
+}
+
+@media all and (max-width: 768px) {
+  .auth-form {
+    margin: 0;
+  }
+}

@@ -1,0 +1,18 @@
+<form [formGroup]='loginForm' (ngSubmit)="onLogin()">
+  <div class="form-group">
+    <h4 class="form-title">Sign In</h4>
+    <div class="form-control block">
+      <mat-form-field>
+        <input formControlName="email" type="email" matInput placeholder="Email">
+      </mat-form-field>
+    </div>
+    <div class="form-control block">
+      <mat-form-field>
+        <input formControlName="password" type="password" matInput placeholder="Password">
+      </mat-form-field>
+    </div>
+    <div class="form-control block">
+      <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Login</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,61 @@
+<a id="back" routerLink="../">
+  &lt;- Back to Projects
+</a>
+<span *ngIf="showSpinner">
+  <app-loading></app-loading>
+</span>
+<div *ngIf="project">
+  <div class="heading">
+    <h2><em>{{ project.name }}</em></h2>
+    <div class="superuser" *ngIf="isSuper() || isOwner(project.author['_id'])">
+      <button mat-raised-button class="btn-primary" type="button" (click)="onEdit()">Edit</button>
+      <button mat-raised-button class="btn-alert" type="button" (click)="onDelete()">Delete</button>
+    </div>
+  </div>
+  <div class="project">
+    <div class="image" *ngIf="imgPaths">
+      <app-img-slider [imgPaths]="imgPaths" [height]="450" [width]="'100%'" [pause]="4000"></app-img-slider>
+      <!-- <img [src]="project.images[0] ? 'http://localhost:3000/' + project.images[0].imagePath : ''" alt="{{ project.name }}"> -->
+    </div>
+    <mat-tab-group class="info">
+      <mat-tab label="ABOUT THE PROJECT">
+        <div class="description" [innerHTML]="project.description">
+        </div>
+      </mat-tab>
+      <mat-tab label="SOURCE CODE"></mat-tab>
+      <mat-tab label="STACK">
+        <div class="stack" *ngIf="project.stack.length > 0">
+          <section *ngIf="frontendStack.length > 0 ">
+            <h4>FRONTEND</h4>
+          </section>
+          <section class="frontend">
+            <div class="card" *ngFor="let tech of frontendStack;">
+              <img [src]="'http://localhost:3000/' + tech.logo" alt="" height="100">
+              <h5>{{ tech.name | uppercase }}</h5>
+            </div>
+          </section>
+          <section *ngIf="backendStack.length > 0 ">
+            <h4>BACKEND</h4>
+          </section>
+          <section class="backend">
+            <div class="card" *ngFor="let tech of backendStack;">
+              <img [src]="'http://localhost:3000/' + tech.logo" alt="" height="100">
+              <h5>{{ tech.name | uppercase }}</h5>
+            </div>
+          </section>
+          <section *ngIf="othersStack.length > 0">
+            <h4>OTHERS</h4>
+          </section>
+          <section class="others">
+            <div class="card" *ngFor="let tech of othersStack;">
+              <img [src]="'http://localhost:3000/' + tech.logo" alt="" height="100">
+              <h5>{{ tech.name | uppercase }}</h5>
+            </div>
+          </section>
+        </div>
+
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+<h3 *ngIf="!project && !showSpinner">No such project</h3>

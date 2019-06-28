@@ -1,0 +1,16 @@
+<section class="title">
+  <h2>Projects</h2>
+  <button mat-raised-button type="button" class="" *ngIf="isSuper()" (click)="onNewProject()">New Project</button>
+</section>
+<h4 *ngIf="projects.length == 0 && !showSpinner" style="width: 100%">No projects to show</h4>
+<section class="projects">
+  <span *ngIf="showSpinner">
+    <app-loading></app-loading>
+  </span>
+  <div *ngFor="let project of projects; let i = index;" class="card" [ngClass]="project.importance ? 'importance-' + project.importance : ''">
+    <a [routerLink]="[project.slug]">
+      <h3>{{ project.name }}</h3>
+    </a>
+    <button mat-mini-fab class="delete btn-alert" type="button" *ngIf="isSuper() || isOwner(project.author)" (click)="onDeleteProject(i, project._id)">X</button>
+  </div>
+</section>

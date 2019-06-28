@@ -1,0 +1,22 @@
+<form [formGroup]='registerForm' (ngSubmit)="onRegister()">
+  <div class="form-group">
+    <h4 class="form-title">Sign Up</h4>
+    <div class="form-control block">
+      <mat-form-field>
+        <input formControlName="email" type="email" matInput placeholder="Email">
+      </mat-form-field>
+    </div>
+    <div class="form-control block">
+      <mat-form-field>
+        <input formControlName="password" type="password" matInput placeholder="Password">
+      </mat-form-field>
+    </div>
+    <div class="form-control block" *ngIf="isSuper()">
+      <label>Role</label>
+      <input formControlName="role" type="text">
+    </div>
+    <div class="form-control block">
+      <button mat-raised-button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">Register</button>
+    </div>
+  </div>
+</form>

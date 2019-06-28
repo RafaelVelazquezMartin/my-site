@@ -1,0 +1,61 @@
+::ng-deep :root {
+  --shadow: 4px 3px 4px 0 rgba(58, 58, 58, 0.5);
+}
+
+.title {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  max-width: 100%;
+}
+
+.title > * {
+  border-left: 8px solid #785448;
+  padding: 1.3rem 1.8rem;
+  background-color: lightgrey;
+  box-shadow: var(--shadow);
+}
+
+.caption {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #785448;
+  text-align: center;
+  width: 100%;
+}
+span {
+  font-size: 2.5rem;
+}
+
+img {
+  transition: ease-out 2s;
+  margin: 10px 10px 0 10px;
+}
+
+#demo {
+  font-weight: 700;
+  color: #f44669;
+}
+
+.type-cursor {
+  color: #f97a59;
+  animation: blink 1.4s ease infinite;
+  opacity: 0;
+  /* font-weight: bolder; */
+}
+@keyframes blink {
+  100% {
+    opacity: 1;
+  }
+}
+
+@media all and (max-width: 768px) {
+  span {
+    font-size: 1.6rem;
+  }
+
+  img {
+    height: 30px;
+  }
+}

@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="wrapper">
+  <div class="header">
+    <app-navbar></app-navbar>
+  </div>
+  <div id="particles-js"></div>
+  <span id="cv-link"><a routerLink="cv">DOWNLOAD MY CV</a></span>
+  <div class="content-wrapper" [@routerTransition]="getState(o)">
+    <div class="content">
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+  </div>
+
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</div>

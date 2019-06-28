@@ -1,0 +1,71 @@
+<div class="navbar">
+  <div class="middle nav-title">
+    <p>
+      <a routerLink="/">RVM</a>
+    </p>
+  </div>
+  <div class="nav-link-list-group">
+    <div class="left">
+      <div class="nav-link-item">
+        <a routerLink="/projects">Projects</a>
+      </div>
+      <!-- <div class="nav-link-item">
+        <a routerLink="/cv">CV</a>
+      </div> -->
+      <div class="nav-link-item">
+        <a routerLink="/about">About me</a>
+      </div>
+    </div>
+    <div class="end">
+      <div *ngIf="!isAuth()" class="nav-link-item">
+        <a routerLink="/auth">Register / Login</a>
+      </div>
+      <div *ngIf="isAuth()" class="nav-link-item">
+        <a (click)="onLogout()">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu" [ngClass]="menuOpen ? 'show' : 'hide'">
+    <div class="nav-title">
+      <p>
+        <a routerLink="/">RVM</a>
+      </p>
+    </div>
+    <div class="photo">
+      <img src="./assets/images/example-portrait-photo.jpg" alt="">
+    </div>
+    <div class="links">
+      <ul>
+        <li><a routerLink="/projects" (click)="onToggleMenu()">Projects</a></li>
+        <li><a routerLink="/about" (click)="onToggleMenu()">About Me</a></li>
+        <li *ngIf="!isAuth()"><a routerLink="/auth" (click)="onToggleMenu()">Register / Login</a></li>
+        <li *ngIf="isAuth()"><a (click)="onLogout(); onToggleMenu()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="menu-wrapper">
+    <div class="hamburger" [ngClass]="menuOpen ? 'open show' : 'closed'" (click)="onToggleMenu()">
+      <div class="burger-main">
+        <div class="burger-inner">
+          <span class="top"></span>
+          <span class="mid"></span>
+          <span class="bot"></span>
+        </div>
+      </div>
+
+      <div class="svg-main">
+        <svg class="svg-circle">
+          <path class="path" fill="none" stroke="#f97a59" stroke-miterlimit="10" stroke-width="4" d="M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2" />
+        </svg>
+      </div>
+      <div class="path-burger">
+        <div class="animate-path">
+          <div class="path-rotation"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

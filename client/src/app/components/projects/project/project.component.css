@@ -1,0 +1,223 @@
+::ng-deep :root {
+  --shadow: 0 3px 7px rgba(58, 58, 58, 0.8);
+}
+
+#back {
+  color: #f44669;
+  text-decoration: none;
+  border-bottom: 1px solid #f44669;
+  transition: border-bottom-width linear 0.5s;
+}
+
+#back:hover {
+  border-bottom-width: 3px;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr auto;
+  /* grid-template-areas:
+    "img img img img img"
+    "desc desc desc stack stack"; */
+  grid-template-areas:
+    "img img img img img"
+    "info info info info info";
+  grid-gap: 0.8rem;
+  min-height: 100vh;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.superuser {
+  align-self: center;
+}
+
+.superuser > button {
+  margin-left: 5px;
+}
+
+.project > .info {
+  grid-area: info;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.stack,
+.description {
+  padding: 15px;
+}
+
+.project > .image {
+  grid-area: img;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 100%;
+}
+
+.stack > .frontend,
+.backend,
+.others {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-auto-rows: 100px;
+  grid-auto-flow: dense;
+}
+
+.card {
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+}
+
+.card > img {
+  max-width: 100%;
+}
+
+.card > h5 {
+  margin: 0;
+}
+
+.project > .description {
+  background-color: rgba(255, 255, 255, 0.6);
+  grid-area: desc;
+}
+
+.description {
+  padding: 1em 2.5em;
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  justify-content: center;
+}
+
+:host ::ng-deep .description > p {
+  /* line-height: 1.6; */
+  font-family: "Source Code Pro", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  /* align-self: flex-start; */
+}
+/* 
+ul {
+    margin-bottom: 14px;
+    list-style: none;
+}
+li { width: 300px; height: 30px;  margin: 0 0 7px 0; }
+li a { 
+    display: block;
+width: 300px;
+height: 30px;
+margin: 0 0 7px 0;
+background: #F7F5F2 97% center no-repeat;
+font-size: 18px;
+color: #333;
+padding: 5px 0 0 20px;
+text-decoration: none;
+} */
+
+:host ::ng-deep .description > ul {
+  width: 75%;
+  margin-bottom: 14px;
+  list-style: none;
+  align-self: center;
+  padding: 0;
+}
+
+:host ::ng-deep .description > ul > li {
+  width: 100%;
+  height: 30px;
+  margin: 0 0 7px 0;
+  display: block;
+  background-color: #f7f5f2;
+  font-size: 18px;
+  color: #333;
+  padding: 5px 0 0 20px;
+  text-decoration: none;
+  border-left: 5px solid #988cc3;
+  font-family: "Roboto", sans-serif;
+}
+
+:host ::ng-deep .description > ul > li:hover {
+  background-color: #efefef;
+}
+
+:host ::ng-deep .description > code {
+}
+
+/* blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+} */
+
+:host ::ng-deep .description > blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 5px;
+  padding: 0.5em 20px;
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+:host ::ng-deep .description > blockquote::before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+:host ::ng-deep .description > blockquote > p {
+  display: inline;
+  font-family: "Roboto", sans-serif;
+}
+
+:host ::ng-deep .description > p > a {
+  border-bottom: 2px solid purple;
+  color: greenyellow;
+  text-decoration: none;
+}
+
+:host ::ng-deep .description > p > a:hover {
+  border-bottom: 2px solid greenyellow;
+  color: purple;
+  text-decoration: none;
+  transition: ease-in 0.5s;
+}
+
+:host ::ng-deep .description > h2 {
+  border-bottom: 6px solid lightgrey;
+  padding: 5px 10px;
+  background-color: white;
+}
+
+:host ::ng-deep .description > h3 {
+  border-bottom: 5px solid lightgrey;
+  padding: 5px 10px;
+  background-color: white;
+}
+
+:host ::ng-deep .description > h4 {
+  border-bottom: 4px solid lightgrey;
+  padding: 5px 10px;
+  background-color: white;
+}

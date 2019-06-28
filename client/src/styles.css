@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html {
+  width: 100%;
+  height: 100%;
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Source Code Pro", sans-serif;
+}
+
+/* /deep/ router-outlet ~ * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+} */
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+  transform: scale(1);
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  z-index: -10;
+  top: 0;
+  left: 0;
+  /* background-color: #f97a59; */
+  background-color: #fde962;
+}
+
+.wrapper > * {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+/* MATERIAL DESIGN TYPOGRAPHY */
+h1 {
+  font-size: calc(2.441em + (2.441 - 2.074) * ((100vw - 25em) / (50 - 25)));
+}
+
+h2 {
+  font-size: calc(1.953em + (1.953 - 1.728) * ((100vw - 25em) / (50 - 25)));
+}
+
+h3 {
+  font-size: calc(1.563em + (1.563 - 1.44) * ((100vw - 25em) / (50 - 25)));
+}
+
+h4 {
+  font-size: calc(1.25em + (1.25 - 1.2) * ((100vw - 25em) / (50 - 25)));
+}
+
+button {
+  text-transform: uppercase;
+}
+
+.form-group {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-auto-rows: 75px;
+}
+
+.form-title {
+  grid-column: 2 / 3;
+}
+
+.form-control {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .btn {
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: blue !important;
+  color: white;
+}
+
+.btn-success {
+  background-color: lightgreen !important;
+  color: white;
+}
+
+.btn-alert {
+  background-color: red !important;
+  color: white;
+} */

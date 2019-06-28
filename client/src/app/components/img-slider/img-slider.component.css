@@ -1,0 +1,85 @@
+#slider {
+  overflow: hidden;
+  position: relative;
+}
+
+#slider #stopped {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: white;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+#slider #next,
+#previous {
+  position: absolute;
+  top: calc(50% - 1rem);
+  background-color: rgba(256, 256, 256, 0.5);
+  padding: 6px 7px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 2rem;
+  height: 2rem;
+  width: 2rem;
+}
+
+#slider #next {
+  right: 15px;
+}
+
+#slider #previous {
+  filter: FlipH;
+  transform: scaleX(-1);
+  left: 15px;
+}
+
+#slider #previous:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transition: ease-out 0.4s;
+}
+
+#slider #next:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transition: ease-out 0.4s;
+}
+
+#slider .slides {
+  display: block;
+  margin: 0;
+  padding: 0;
+  transition: margin-left 1s;
+}
+
+#slider .slide {
+  float: left;
+  list-style-type: none;
+}
+
+#slider .slide img {
+  width: 100%;
+}
+
+#slider .dots {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  list-style-type: none;
+}
+
+#slider .dots .dot {
+  margin: 0 5px;
+  padding: 8px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid grey;
+}
+
+#slider .dots .dot.active {
+  background-color: black;
+  transition: background-color 0.5s;
+}
