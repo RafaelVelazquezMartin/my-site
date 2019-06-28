@@ -12,12 +12,12 @@ import { routerTransition } from "./animations/router-transition.animation";
 export class AppComponent implements OnInit {
   title = "app";
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     // firebase.initializeApp({
-    //   apiKey: "AIzaSyBWZfnPARQbs5BVSiokF4_EVT81NPTRclw",
-    //   authDomain: "rafaelvelazquezmartin-site.firebaseapp.com"
+    //   apiKey: "",
+    //   authDomain: ""
     // });
   }
 
