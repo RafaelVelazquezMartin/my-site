@@ -1,0 +1,9 @@
+PALETA DE COLORES USADA: http://www.color-hex.com/color-palette/64781
+
+
+-------------------------------------- ||  IDEAS  || -------------------------------------------------------
+
+
+	+	En ABOUT ME / HOME poner un video grabado por mi presentandome
+	+	Añadir la opcion de WORK IN PROGRESS a un proyecto y poner link al repositorio para ver el progreso.
+	

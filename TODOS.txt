@@ -1,0 +1,43 @@
+------------------------BUGS-----------------------------
+
+|| HIGH ||
+
+  + Unable to load edit page of component on refresh
+  + Routing animation and home animation conflict and make
+    title section 'jump'
+
+|| MEDIUM ||
+
+  + When deleting a new to-be-added image, it deletes the wrong one
+    (may be due to having two separate lists: filesToUpload & filesUrls)
+  + When deleting a project, associated images are not deleted and 
+    occupy space
+
+|| LOW ||
+
+  + Reduce API requests (currently n req for n tech) for 
+    technologies when editing / creating projects (DONE?)
+  + Validate input for 'Create New Technology' dialog
+  + Need to sort out module importing and declarations (use SharedModule)
+
+
+-----------------------TODOS------------------------------
+
+|| FUNCTIONALITY ||
+
+  + Safer way to store user's session
+  + CRUD for technologies on client
+  + Navbar menu
+  + Search for projects by name or technologies
+
+|| DESIGN ||
+
+  + Forms design (improved but not there yet)
+  + Project detail view design
+  + Animations
+
+|| PENDING PAGES ||
+
+  + Cookies policy page
+  + About page
+  + CV page
