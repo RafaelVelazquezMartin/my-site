@@ -12,7 +12,7 @@ export class ProjectsStorageService {
   authToken: any;
   user: any;
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   // storeProject(newProject: {
   //   name: string;
@@ -28,7 +28,7 @@ export class ProjectsStorageService {
     //   this.projectService.getProjects()
     // );
     const token = this.authService.getToken();
-    return this.http.post("http://localhost:3000/projects/", newProject, {
+    return this.http.post("http://35.222.61.88/projects/", newProject, {
       headers: new HttpHeaders({ Authorization: token })
     });
   }
@@ -47,20 +47,20 @@ export class ProjectsStorageService {
       ops.push({ propName: propertyName, value: newProject[propertyName] });
     }
     const token = this.authService.getToken();
-    return this.http.patch("http://localhost:3000/projects/" + projectId, ops, {
+    return this.http.patch("http://35.222.61.88/projects/" + projectId, ops, {
       headers: new HttpHeaders({ Authorization: token })
     });
   }
 
   getProject(projectId: string) {
     return this.http
-      .get("http://localhost:3000/projects/" + projectId)
+      .get("http://35.222.61.88/projects/" + projectId)
       .pipe(map(response => response));
   }
 
   deleteProject(projectId: string) {
     const token = this.authService.getToken();
-    return this.http.delete("http://localhost:3000/projects/" + projectId, {
+    return this.http.delete("http://35.222.61.88/projects/" + projectId, {
       headers: new HttpHeaders({ Authorization: token })
     });
   }
@@ -78,7 +78,7 @@ export class ProjectsStorageService {
     //     }
     //     this.projectService.setProjects(projects);
     //   });
-    return this.http.get<IProjectsRes>("http://localhost:3000/projects/").pipe(
+    return this.http.get<IProjectsRes>("http://35.222.61.88/projects/").pipe(
       map(
         response => response // returns response, not list of projects
         // response => response['projects']  returns list of projects

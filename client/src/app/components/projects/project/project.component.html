@@ -17,12 +17,13 @@
       <app-img-slider [imgPaths]="imgPaths" [height]="450" [width]="'100%'" [pause]="4000"></app-img-slider>
       <!-- <img [src]="project.images[0] ? 'http://localhost:3000/' + project.images[0].imagePath : ''" alt="{{ project.name }}"> -->
     </div>
+    <button mat-raised-button class="btn-primary" type="button" (click)="''">VIEW SOURCE CODE</button>
+    <button mat-raised-button class="btn-primary" type="button" (click)="''">VIEW LIVE DEMO</button>
     <mat-tab-group class="info">
       <mat-tab label="ABOUT THE PROJECT">
         <div class="description" [innerHTML]="project.description">
         </div>
       </mat-tab>
-      <mat-tab label="SOURCE CODE"></mat-tab>
       <mat-tab label="STACK">
         <div class="stack" *ngIf="project.stack.length > 0">
           <section *ngIf="frontendStack.length > 0 ">
@@ -30,7 +31,7 @@
           </section>
           <section class="frontend">
             <div class="card" *ngFor="let tech of frontendStack;">
-              <img [src]="'http://localhost:3000/' + tech.logo" alt="" height="100">
+              <img [src]="'http://35.222.61.88/' + tech.logo" alt="" height="100">
               <h5>{{ tech.name | uppercase }}</h5>
             </div>
           </section>
@@ -39,7 +40,7 @@
           </section>
           <section class="backend">
             <div class="card" *ngFor="let tech of backendStack;">
-              <img [src]="'http://localhost:3000/' + tech.logo" alt="" height="100">
+              <img [src]="'http://35.222.61.88/' + tech.logo" alt="" height="100">
               <h5>{{ tech.name | uppercase }}</h5>
             </div>
           </section>
@@ -48,13 +49,14 @@
           </section>
           <section class="others">
             <div class="card" *ngFor="let tech of othersStack;">
-              <img [src]="'http://localhost:3000/' + tech.logo" alt="" height="100">
+              <img [src]="'http://35.222.61.88/' + tech.logo" alt="" height="100">
               <h5>{{ tech.name | uppercase }}</h5>
             </div>
           </section>
         </div>
 
       </mat-tab>
+      <a href=""></a>
     </mat-tab-group>
   </div>
 </div>

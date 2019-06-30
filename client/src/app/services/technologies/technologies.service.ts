@@ -8,15 +8,15 @@ import { map } from "rxjs/operators";
   providedIn: "root"
 })
 export class TechnologiesService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getTechnologies(): Observable<Technology[]> {
     return this.http
-      .get<Technology[]>("http://localhost:3000/technologies")
+      .get<Technology[]>("http://35.222.61.88/technologies")
       .pipe(map(response => response["technologies"]));
   }
 
   createTechnology(newTech: Technology) {
-    return this.http.post("http://localhost:3000/technologies", newTech);
+    return this.http.post("http://35.222.61.88/technologies", newTech);
   }
 }

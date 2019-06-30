@@ -26,7 +26,7 @@ export class ProjectsService {
 
   private projects: Project[] = [];
 
-  constructor(private authService: AuthService, private http: HttpClient) {}
+  constructor(private authService: AuthService, private http: HttpClient) { }
 
   // getProjects() {
   //   return this.projects.slice();
@@ -46,7 +46,7 @@ export class ProjectsService {
     //   })
     // );
 
-    return this.http.get<IProjectsRes>("http://localhost:3000/projects/").pipe(
+    return this.http.get<IProjectsRes>("http://35.222.61.88/projects/").pipe(
       map((response: IProjectsRes) => response.projects),
       tap(projects => {
         console.log(projects);
@@ -64,7 +64,7 @@ export class ProjectsService {
     // );
     const token = this.authService.getToken();
     return this.http
-      .post("http://localhost:3000/projects/", newProject, {
+      .post("http://35.222.61.88/projects/", newProject, {
         headers: new HttpHeaders({ Authorization: token })
       })
       .pipe(
@@ -81,7 +81,7 @@ export class ProjectsService {
     }
     const token = this.authService.getToken();
     return this.http
-      .patch("http://localhost:3000/projects/" + projectId, ops, {
+      .patch("http://35.222.61.88/projects/" + projectId, ops, {
         headers: new HttpHeaders({ Authorization: token })
       })
       .pipe(
@@ -95,14 +95,14 @@ export class ProjectsService {
 
   getProject(projectId: string) {
     return this.http
-      .get("http://localhost:3000/projects/" + projectId)
+      .get("http://35.222.61.88/projects/" + projectId)
       .pipe(map(response => response));
   }
 
   deleteProject(projectId: string) {
     const token = this.authService.getToken();
     return this.http
-      .delete("http://localhost:3000/projects/" + projectId, {
+      .delete("http://35.222.61.88/projects/" + projectId, {
         headers: new HttpHeaders({ Authorization: token })
       })
       .pipe(

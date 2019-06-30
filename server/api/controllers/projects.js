@@ -111,7 +111,7 @@ exports.projects_create_project = (req, res, next) => {
         },
         request: {
           type: "GET",
-          url: "http://localhost:3000/projects/" + result._id
+          url: "http://35.222.61.88/projects/" + result._id
         }
       });
     })

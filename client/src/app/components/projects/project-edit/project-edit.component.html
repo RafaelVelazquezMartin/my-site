@@ -28,7 +28,8 @@
       </select> -->
       <!-- <ng-container [formControlName]="i"> -->
       <mat-form-field>
-        <input type="text" [placeholder]="'Technology ' + i" aria-label="Technology" matInput [formControlName]="i" [matAutocomplete]="auto">
+        <input type="text" [placeholder]="'Technology ' + i" aria-label="Technology" matInput [formControlName]="i"
+          [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" autoActiveFirstOption>
           <mat-option *ngFor="let option of filteredOptions[i] | async" [value]="option">
             {{option.name}}
@@ -37,10 +38,12 @@
       </mat-form-field>
       <!-- <app-auto-complete placeholder="Technology" [control]="techCntrl" [options]="technologies"></app-auto-complete> -->
       <!-- </ng-container> -->
-      <button mat-raised-button class="btn btn-danger" (click)="onDeleteTechnologyFormControl(i)" type="button">X</button>
+      <button mat-raised-button class="btn btn-danger" (click)="onDeleteTechnologyFormControl(i)"
+        type="button">X</button>
     </div>
     <hr>
-    <button mat-raised-button class="btn btn-primary" (click)="onAddTechnologyFormControl()" type="button">Add Technology</button>
+    <button mat-raised-button class="btn btn-primary" (click)="onAddTechnologyFormControl()" type="button">Add
+      Technology</button>
   </div>
 
 
@@ -49,7 +52,8 @@
     <h4>Files</h4>
     <h5 *ngIf="project.images.length < 1">This project contains no images</h5>
     <div *ngFor="let image of project.images; let i = index;">
-      <img [src]="'http://localhost:3000/' + image.imagePath" alt="Nothing" style="width: 100%; height: 100%; max-width: 250px;">
+      <img [src]="'http://35.222.61.88/' + image.imagePath" alt="Nothing"
+        style="width: 100%; height: 100%; max-width: 250px;">
       <button mat-mini-fab class="btn btn-danger" (click)="onDeleteImage(i, image._id)" type="button">X</button>
     </div>
   </div>
@@ -58,11 +62,14 @@
   <h5 *ngIf="fileUrls.length < 1">No new images added</h5>
   <div *ngFor="let addedImage of fileUrls; let i = index;">
     <img *ngIf="isDataAvailable" [src]="addedImage" alt="Nothing" style="width: 100%; height: 100%; max-width: 250px;">
-    <button mat-mini-fab class="btn btn-danger" (click)=" filesToUpload.splice(i, 1); fileUrls.splice(i, 1);" type="button">X</button>
+    <button mat-mini-fab class="btn btn-danger" (click)=" filesToUpload.splice(i, 1); fileUrls.splice(i, 1);"
+      type="button">X</button>
   </div>
   <hr>
-  <button mat-raised-button (click)="fileInput.click()" type="button" class="form-control btn-primary">Choose an image...</button>
-  <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+  <button mat-raised-button (click)="fileInput.click()" type="button" class="form-control btn-primary">Choose an
+    image...</button>
+  <span
+    style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
     <input type="file" #fileInput multiple (change)="fileChangeEvent($event)" class="form-control" />
   </span>
 </form>

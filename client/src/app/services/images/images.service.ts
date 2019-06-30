@@ -8,15 +8,15 @@ import { Image } from "../../shared/Image";
   providedIn: "root"
 })
 export class ImagesService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   uploadImages(image: FormData): Observable<Image[]> {
     return this.http
-      .post("http://localhost:3000/images/upload", image)
+      .post("http://35.222.61.88/images/upload", image)
       .pipe(map(response => response["uploadedImgs"]));
   }
 
   deleteImage(imageId: string) {
-    return this.http.delete("http://localhost:3000/images/" + imageId);
+    return this.http.delete("http://35.222.61.88/images/" + imageId);
   }
 }

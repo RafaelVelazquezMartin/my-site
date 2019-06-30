@@ -52,7 +52,10 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ["localhost:3000"]
+        whitelistedDomains: [
+          "localhost:3000",
+          "35.222.61.88"
+        ]
       }
     }),
     ReactiveFormsModule,
@@ -73,4 +76,4 @@ export function tokenGetter() {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
