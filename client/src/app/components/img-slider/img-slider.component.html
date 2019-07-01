@@ -4,7 +4,8 @@
   <mat-icon (click)="onNextSlide()" id="next">send</mat-icon>
   <mat-icon (click)="onPreviousSlide()" id="previous">send</mat-icon>
   <ul #slides class="slides">
-    <li class="slide" *ngFor="let imgPath of imgPaths"><img [src]="'http://35.222.61.88/' + imgPath" alt=""></li>
+    <li class="slide" *ngFor="let imgPath of imgPaths"><img
+        [src]="'https://cors-anywhere.herokuapp.com/http://35.222.61.88/' + imgPath" alt=""></li>
   </ul>
   <ul class="dots">
     <li class="dot" [ngClass]="currentSlide === i ? 'active' : ''" *ngFor="let imgPath of imgPaths; let i = index;"

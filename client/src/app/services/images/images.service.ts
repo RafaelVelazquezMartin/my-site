@@ -12,11 +12,11 @@ export class ImagesService {
 
   uploadImages(image: FormData): Observable<Image[]> {
     return this.http
-      .post("http://35.222.61.88/images/upload", image)
+      .post("https://cors-anywhere.herokuapp.com/http://35.222.61.88/images/upload", image)
       .pipe(map(response => response["uploadedImgs"]));
   }
 
   deleteImage(imageId: string) {
-    return this.http.delete("http://35.222.61.88/images/" + imageId);
+    return this.http.delete("https://cors-anywhere.herokuapp.com/http://35.222.61.88/images/" + imageId);
   }
 }

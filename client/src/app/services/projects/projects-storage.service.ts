@@ -28,7 +28,7 @@ export class ProjectsStorageService {
     //   this.projectService.getProjects()
     // );
     const token = this.authService.getToken();
-    return this.http.post("http://35.222.61.88/projects/", newProject, {
+    return this.http.post("https://cors-anywhere.herokuapp.com/http://35.222.61.88/projects/", newProject, {
       headers: new HttpHeaders({ Authorization: token })
     });
   }
@@ -47,20 +47,20 @@ export class ProjectsStorageService {
       ops.push({ propName: propertyName, value: newProject[propertyName] });
     }
     const token = this.authService.getToken();
-    return this.http.patch("http://35.222.61.88/projects/" + projectId, ops, {
+    return this.http.patch("https://cors-anywhere.herokuapp.com/http://35.222.61.88/projects/" + projectId, ops, {
       headers: new HttpHeaders({ Authorization: token })
     });
   }
 
   getProject(projectId: string) {
     return this.http
-      .get("http://35.222.61.88/projects/" + projectId)
+      .get("https://cors-anywhere.herokuapp.com/http://35.222.61.88/projects/" + projectId)
       .pipe(map(response => response));
   }
 
   deleteProject(projectId: string) {
     const token = this.authService.getToken();
-    return this.http.delete("http://35.222.61.88/projects/" + projectId, {
+    return this.http.delete("https://cors-anywhere.herokuapp.com/http://35.222.61.88/projects/" + projectId, {
       headers: new HttpHeaders({ Authorization: token })
     });
   }
@@ -78,7 +78,7 @@ export class ProjectsStorageService {
     //     }
     //     this.projectService.setProjects(projects);
     //   });
-    return this.http.get<IProjectsRes>("http://35.222.61.88/projects/").pipe(
+    return this.http.get<IProjectsRes>("https://cors-anywhere.herokuapp.com/http://35.222.61.88/projects/").pipe(
       map(
         response => response // returns response, not list of projects
         // response => response['projects']  returns list of projects

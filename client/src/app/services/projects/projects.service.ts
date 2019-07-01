@@ -46,7 +46,7 @@ export class ProjectsService {
     //   })
     // );
 
-    return this.http.get<IProjectsRes>("http://35.222.61.88/projects/").pipe(
+    return this.http.get<IProjectsRes>("https://cors-anywhere.herokuapp.com/http://35.222.61.88/projects/").pipe(
       map((response: IProjectsRes) => response.projects),
       tap(projects => {
         console.log(projects);
@@ -64,7 +64,7 @@ export class ProjectsService {
     // );
     const token = this.authService.getToken();
     return this.http
-      .post("http://35.222.61.88/projects/", newProject, {
+      .post("https://cors-anywhere.herokuapp.com/http://35.222.61.88/projects/", newProject, {
         headers: new HttpHeaders({ Authorization: token })
       })
       .pipe(
@@ -81,7 +81,7 @@ export class ProjectsService {
     }
     const token = this.authService.getToken();
     return this.http
-      .patch("http://35.222.61.88/projects/" + projectId, ops, {
+      .patch("https://cors-anywhere.herokuapp.com/http://35.222.61.88/projects/" + projectId, ops, {
         headers: new HttpHeaders({ Authorization: token })
       })
       .pipe(
@@ -95,14 +95,14 @@ export class ProjectsService {
 
   getProject(projectId: string) {
     return this.http
-      .get("http://35.222.61.88/projects/" + projectId)
+      .get("https://cors-anywhere.herokuapp.com/http://35.222.61.88/projects/" + projectId)
       .pipe(map(response => response));
   }
 
   deleteProject(projectId: string) {
     const token = this.authService.getToken();
     return this.http
-      .delete("http://35.222.61.88/projects/" + projectId, {
+      .delete("https://cors-anywhere.herokuapp.com/http://35.222.61.88/projects/" + projectId, {
         headers: new HttpHeaders({ Authorization: token })
       })
       .pipe(

@@ -111,7 +111,7 @@ exports.projects_create_project = (req, res, next) => {
         },
         request: {
           type: "GET",
-          url: "http://35.222.61.88/projects/" + result._id
+          url: "https://cors-anywhere.herokuapp.com/http://35.222.61.88/projects/" + result._id
         }
       });
     })

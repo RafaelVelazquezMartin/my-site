@@ -5,8 +5,8 @@
 <div class="caption" *ngIf="technologies">
   <span class="brand">I work with: </span>
   <span [innerHTML]="htmlToAdd" id="demo"></span>
-  <span><img [src]="'http://35.222.61.88/' + technologies[turn].logo" (change)="delayImage()" height="60"
-      alt="Nothing"></span>
+  <span><img [src]="'https://cors-anywhere.herokuapp.com/http://35.222.61.88/' + technologies[turn].logo"
+      (change)="delayImage()" height="60" alt="Nothing"></span>
   <span class='type-cursor'>_</span>
 </div>
 

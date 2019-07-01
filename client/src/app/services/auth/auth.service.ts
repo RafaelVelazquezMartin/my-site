@@ -30,7 +30,7 @@ export class AuthService {
       password: password,
       role: role ? role : undefined
     };
-    return this.http.post("http://35.222.61.88/users/signup", newUser).pipe(
+    return this.http.post("https://cors-anywhere.herokuapp.com/http://35.222.61.88/users/signup", newUser).pipe(
       map(response => {
         response;
       })
@@ -59,7 +59,7 @@ export class AuthService {
       password: password
     };
     return this.http
-      .post("http://35.222.61.88/users/login", loginUser)
+      .post("https://cors-anywhere.herokuapp.com/http://35.222.61.88/users/login", loginUser)
       .pipe(map(response => response));
   }
 

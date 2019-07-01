@@ -52,7 +52,7 @@
     <h4>Files</h4>
     <h5 *ngIf="project.images.length < 1">This project contains no images</h5>
     <div *ngFor="let image of project.images; let i = index;">
-      <img [src]="'http://35.222.61.88/' + image.imagePath" alt="Nothing"
+      <img [src]="'https://cors-anywhere.herokuapp.com/http://35.222.61.88/' + image.imagePath" alt="Nothing"
         style="width: 100%; height: 100%; max-width: 250px;">
       <button mat-mini-fab class="btn btn-danger" (click)="onDeleteImage(i, image._id)" type="button">X</button>
     </div>

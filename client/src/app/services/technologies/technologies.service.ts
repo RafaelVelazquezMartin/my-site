@@ -12,11 +12,11 @@ export class TechnologiesService {
 
   getTechnologies(): Observable<Technology[]> {
     return this.http
-      .get<Technology[]>("http://35.222.61.88/technologies")
+      .get<Technology[]>("https://cors-anywhere.herokuapp.com/http://35.222.61.88/technologies")
       .pipe(map(response => response["technologies"]));
   }
 
   createTechnology(newTech: Technology) {
-    return this.http.post("http://35.222.61.88/technologies", newTech);
+    return this.http.post("https://cors-anywhere.herokuapp.com/http://35.222.61.88/technologies", newTech);
   }
 }
